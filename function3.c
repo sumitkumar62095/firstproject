@@ -1,22 +1,22 @@
 #include<stdio.h>
-
-
-
-
-int getnumber()
-{
-
-    return 5;
-
-
-}
-
-
 int main()
 {
 
-    int n =getnumber();
-    printf("%d",n);
+    for(int i=1; i<=50; i++)
+    
+        
+    {
+
+
+        printf("%d",i);
+    }
+
+
+
+
+
+
+
 
     return 0;
 }

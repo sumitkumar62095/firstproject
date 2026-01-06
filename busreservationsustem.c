@@ -19,6 +19,16 @@ void bookticket();
 void cancelticket();
 void checkstatus();
 
+int isvaildusername(char name[])
+{
+    
+
+return(strspn(name,"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZ")==strlen(name));
+
+
+}
+
+
 int main()
 {
 
@@ -33,9 +43,21 @@ void signup()
 {
 
     printf("\n***=======SIGNUP=======***\n");
+    while(1)
+    {
+        printf("please enter user name : ");
+        scanf(" %[^\n]",reg_username);
 
-    printf("please enter user name : ");
-    scanf(" %[^\n]",reg_username);
+        if(isvaildusername(reg_username))
+        break;
+
+        else
+        {
+
+            printf("username me sirf characters allowed\n");
+        }
+
+    }
 
     printf("please enter password: ");
     scanf(" %[^\n]",reg_password);
@@ -75,6 +97,15 @@ void loginmenu()
 
             printf("please enter username : ");
             scanf(" %[^\n]",username);
+
+            if(!isvaildusername(username))
+            {
+
+
+                printf("invailed username(sirf characters allowed)\n");
+                continue;
+            }
+
 
             printf("please enter password: ");
             scanf(" %[^\n]",password);
@@ -243,14 +274,16 @@ void checkstatus()
     for(int i=0; i<2; i++)
 
     {
-
+        if(busnumber[i]==bno)
+        {
             printf("\nbus number:%d\n",busnumber[i]);
             printf("source city:%s\n",source[i]);
             printf("destination city: %s\n",destination[i]);
             printf("total seats:%d\n",totalseats[i]);
             printf("available seats:%d\n",availableseats[i]);
             printf("fare: 500.00\n");
-
+            
+        }
 
     }
 
